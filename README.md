@@ -4,6 +4,9 @@ This is the project repository for the UAS Task 2 project, it contains two pytho
 ## Image Mosaicing
 The Image Mosaicing task takes as input multiple overlapping images and then stitches them together into a large image similar to how a phone takes panorama images. It works using the stitcher class of OpenCV.
 
+<img src="https://user-images.githubusercontent.com/20179934/209199839-fcc6d574-93ef-4445-b38f-ba9119432759.png" width="512">
+<em>Example stiched image generated using this program</em>
+
 ### Using the Image Mosaicing Program
 1. Download the source code and add the images you want to stitch together in the imgs folder.
 2. Run the `Image Mosaicing.py` script and enter the names of the images with their extensions (E.g: pic1.jpg) separated by commas.
@@ -16,3 +19,4 @@ The arrow detector program takes the input feed from a laptop's webcam and detec
 ### Using the Arrow Detector Program
 1. Run `Arrow Detector.py`
 2. Bring any photo or hand-drawn arrow in front of the webcam and hold it there.
+
