@@ -69,25 +69,26 @@ while True:
                 box = np.int0(box)
                 print()
                 grayscale = cv.circle(grayscale, (cx, cy), 5, (200, 200, 150), -1)
+                cv.drawContours(grayscale, [box], 0, (0, 0, 255), 2)
 
                 # TODO Get mid point of the bottom edge of the arrow and get angle of line joining it to the centroid
                 epsilon = 0.01 * cv.arcLength(cnt, True)
                 approximations = cv.approxPolyDP(cnt, epsilon, True)
 
-                # if len(approximations) == 7:
-                #     # cv.drawContours(grayscale, [approximations], 0, (0, 255, 0), 2)
-                #     arrow = approximations
-                #     break
-                cv.drawContours(grayscale, [box], 0, (0, 0, 255), 2)
-    if arrow is not None:
-        coords = [x for x in arrow]
-        print(coords[0])
+                if len(approximations) == 7:
+                    cv.drawContours(grayscale, [approximations], 0, (0, 255, 0), 2)
+                    arrow = approximations
+                    break
 
-        i, j = minDistElem(coords)
-        grayscale = cv.circle(grayscale, (coords[i][0], coords[i][1]), 5, (255, 0, 0), -1)
-        grayscale = cv.circle(grayscale, (coords[j][0], coords[j][1]), 5, (255, 0, 0), -1)
-
-        cv.drawContours(grayscale, [arrow], 0, 0, 3)
+    # if arrow is not None:
+    #     coords = [x for x in arrow]
+    #     print(coords[0])
+    #
+    #     i, j = minDistElem(coords)
+    #     grayscale = cv.circle(grayscale, (coords[i][0], coords[i][1]), 5, (255, 0, 0), -1)
+    #     grayscale = cv.circle(grayscale, (coords[j][0], coords[j][1]), 5, (255, 0, 0), -1)
+    #
+    #     cv.drawContours(grayscale, [arrow], 0, 0, 3)
 
     cv.imshow("Grayscale", grayscale)
 
